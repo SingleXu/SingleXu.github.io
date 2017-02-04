@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>重构の坑</title>
+    <meta name="description" content="前端个人网站">
+    <meta name="keywords" content="HTML,CSS,前端,重构,简历">
+    <meta name="author" content="Apollozz">
+    <link rel="shortcut icon" href="images/favicon.ico" /> 
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="styles/prism.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/prism.js"></script>
+</head>
+<body>
+<!-- 分享图片 -->
+<div style="display: none;">
+    <img src="images/share.png" style="display: block;width: 350px;height: 350px;">
+</div>
+<div class="container">
+    <!-- 侧边导航栏 -->
+    <div class="nav" data-on="off">
+        <header class="nav-header">
+            重构の坑
+            <span class="icon-menu">
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+                <span class="line line-3"></span>
+            </span>
+        </header>
+        <ul class="wrap-nav-item" data-scroll="off">
+            <li class="nav-item nav-item-first active">
+                PC端
+                <ul class="wrap-nav-item-inner">
+                    <li class="nav-item nav-item-second"><a data-href="#pc1">IE</a></li>
+                    <li class="nav-item nav-item-second"><a data-href="#pc2">Firefox</a></li>
+                </ul>
+            </li>
+            <li class="nav-item nav-item-first">
+                移动端
+                <ul class="wrap-nav-item-inner">
+                    <li class="nav-item nav-item-second"><a data-href="#mobile1">IOS</a></li>
+                    <li class="nav-item nav-item-second"><a data-href="#mobile2">Android</a></li>
+                    <li class="nav-item nav-item-second"><a data-href="#mobile3">移动端通病</a></li>
+                </ul>
+            </li>
+            <li class="nav-item nav-item-first">
+                通用
+                <ul class="wrap-nav-item-inner">
+                    <li class="nav-item nav-item-second"><a data-href="#common1">通用问题</a></li>
+                    <li class="nav-item nav-item-second"><a data-href="#common2">其他笔记</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- 主体内容 -->
+    <div class="content">
+        <div class="wrap-content">
+            <!-- PC IE -->
+            <div class="wrap-content-item" id="pc1">
+                <h3 class="content-item-title">IE</h3>
+                <div class="content-item">
+                    <h4 class="question">1/有哪些需要注意的点？</h4>
+                    <ol class="answer">
+                        <li>IE9及以下无法改变button[disabled]的字体颜色（可改变背景颜色等）。</li>
+                        <li>IE9及以下不能使用animation。</li>
+                        <li>IE8及以下不能使用translate/last-child/positon-size。</li>
+                        <li>Jq1.8以上版本不兼容IE8及以下，如果需要兼容低版本IE，应采用低版本Jq。</li>
+                    </ol>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">低版本IE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PC Firefox -->
+            <div class="wrap-content-item" id="pc2">
+                <h3 class="content-item-title">Firefox</h3>
+                <div class="content-item">
+                    <h4 class="question">1/有哪些需要注意的点？</h4>
+                    <p class="answer">
+                        <ol>
+                            <li>input[type="checkbox"]{-moz-appearance: none;}在火狐浏览器并没有效果。</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 移动端 IOS -->
+            <div class="wrap-content-item" id="mobile1">
+                <h3 class="content-item-title">IOS</h3>
+                <div class="content-item">
+                    <h4 class="question">1/label内有多个input元素时，无法选中各个input元素？</h4>
+                    <p class="answer">当label内部有多个input元素时，PC端和安卓浏览器可以选中各个input，而在IOS中会默认选中第一个，后面的input元素无法选中，故需要注意不要用label去包裹多个input元素。</p>
+                </div>
+            </div>
+
+            <!-- 移动端 Android -->
+            <div class="wrap-content-item" id="mobile2">
+                <h3 class="content-item-title">Android</h3>
+                <div class="content-item">
+                    <h4 class="question">1/有哪些需要注意的点？</h4>
+                    <ol class="answer">
+                        <li>低版本安卓系统不支持兄弟选择器。</li>
+                    </ol>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">2/flex布局中的flex-basis失效？</h4>
+                    <p class="answer">需要给相应的元素设置width属性。</p>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">flexbox</span>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">3/svg元素对css中的tranform支持性不好，若对其设置2D变换会出现有背景色等bug？</h4>
+                    <p class="answer">若需要对其设置2D变换，可采用在svg元素外层进行包裹，对其包裹层设置动画的方法。</p>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">SVG</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 移动端 通病 -->
+            <div class="wrap-content-item" id="mobile3">
+                <h3 class="content-item-title">移动端通病</h3>
+                <div class="content-item">
+                    <h4 class="question">1/设置为{flex: 1;}的input，如果font-size过大，会导致整个input莫名变高，并挤压到其他元素？</h4>
+                    <p class="answer">给设置为flexbox的input添加一个width，具体数值没有限定，宽度不起作用，但能解决上述问题。</p>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">flexbox</span>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">2/设置为{overflow: hidden; border-radius: 4px;}的元素，内部子元素若设置transform动画时，会有溢出现象，border-radius失效？</h4>
+                    <p class="answer">给设置了border-radius的元素设置z-index。</p>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">3/IOS7及低版本安卓系统中，行内元素设置为flexbox后无法改变其作为行内元素的属性？</h4>
+                    <p class="answer">对行内元素设置{display: block;}（注意：display: inline-block;无效）。</p>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">flexbox</span>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">4/body设置{width: 100%; height: 100%; overflow: hidden;}，在PC端浏览器上页面显示正常，无法滚动，但是在移动端上body依然存在滚动行为？</h4>
+                    <p class="answer">让html和body元素都设置{height: 100%; overflow: hidden;}，最好在body再设置{position: relative;}</p>
+<pre class="pre"><code class="language-css">html,body{
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    position: relative;
+}
+</code></pre>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">5/按钮文字已经设置了line-height却没有垂直居中？</h4>
+                    <p class="answer">button元素有默认的padding，最好在reset中对其设置{padding: 0;}。</p>
+                </div>
+            </div>
+
+            <!-- 通用问题 -->
+            <div class="wrap-content-item" id="common1">
+                <h3 class="content-item-title">通用问题</h3>
+                <div class="content-item">
+                    <h4 class="question">1/pre标签默认属性{white-space: pre;}，会保护内容宽度而撑宽父元素？</h4>
+                    <p class="answer">若需要破坏撑宽机制，可对其设置为{white-space: pre-wrap;}。</p>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">2/input元素或者textarea元素中，闪动的光标颜色与设定的字体颜色相同（即color属性），如何更改光标颜色？</h4>
+                    <p class="answer">首先，利用color属性设定所需要的光标颜色，然后输入文字的颜色利用text-shadow进行重设。</p>
+<pre class="pre"><code class="language-css">input{
+    color: blue;  &lt;!-- 光标颜色 --&gt;
+    text-shadow: 0 0 0 #000;  &lt;!-- 输入字体颜色 --&gt;
+    -webkit-text-fill-color: transparent;
+}
+</code></pre>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">光标</span>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">3/如何设置一个有placeholder的select元素？</h4>
+                    <p class="answer">解决方法如下：</p>
+<pre class="pre"><code class="language-css">select:invalid{
+    color: #999;
+}
+</code></pre>
+<pre class="pre"><code class="language-html">&lt;select required&gt;
+    &lt;option value=&quot;&quot; disabled selected hidden&gt;Please Choose&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">select</span>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">4/textarea元素不能设置max-height属性？</h4>
+                    <p class="answer">可以采用给div添加属性 contenteditable="true"，可模拟成一个textarea，同时可以设置高度限制。</p>
+<pre class="pre"><code class="language-html">&lt;div contenteditable=&quot;true&quot; style=&quot;max-height: 100px;&quot;&gt;
+    我是一个可以编辑内容的div
+&lt;/div&gt;
+</code></pre>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">textarea</span>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">5/图片下方多出来几个空白的像素？</h4>
+                    <p class="answer">img属于inline元素，inline因为受到字号和行间距的影响底部留出了一段距离。解决方法有：
+                        <br/>(1) img元素块级化；
+                        <br/>(2) 父元素字号或者行间距为0；
+                        <br/>(3) img {vertical-align: middle;} 。</p>
+<pre class="pre"><code class="language-css">img{display: block;}
+
+div{font-size: 0;}
+div{line-height: 0;}
+
+img{vertival-align: middle;}
+</code></pre>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">img几个像素空白</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他笔记 -->
+            <div class="wrap-content-item" id="common2">
+                <h3 class="content-item-title">其他笔记</h3>
+                <div class="content-item">
+                    <h4 class="question">1/觉得还不错的参考资料 </h4>
+                    <ol class="answer">
+                        <li><a class="answer-link" href="http://dwz.cn/4p8xOQ" target="_blank">最全的CSS HACK</a></li>
+                        <li><a class="answer-link" href="http://www.cnblogs.com/xljzlw/p/4769706.html" target="_blank">使用SASS和Compass合并雪碧图</a></li>
+                        <li><a class="answer-link" href="http://www.webhek.com/draw-a-stickman/" target="_blank">SVG绘图-小人动画</a></li>
+                        <li><a class="answer-link" href="http://dwz.cn/4p8wDr" target="_blank">@mixin和@extend该如何选择</a></li>
+                        <li><a class="answer-link" href="http://dwz.cn/4p99ij" target="_blank">canvas画图基础</a></li>
+                    </ol>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">2/animation-fill-mode: none | both | forwards | backwards</h4>
+                    <p class="answer">animation相关属性</p>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">animation</span>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <h4 class="question">3/-webkit-font-smoothing: none(适合低像素文本) | subpixel-antialiased(默认值) | antialiased(抗锯齿) </h4>
+                    <p class="answer">该属性可以使页面上的字体抗锯齿，使用后字体看起来会更清晰舒服，但针对小号字体使用none较为合适，但目前该属性已从W3C标准中移除，慎用！</p>
+                    <div class="keyword">
+                        <span>关键词：</span>
+                        <span class="keyword-item">抗锯齿</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+</body>
+</html>
