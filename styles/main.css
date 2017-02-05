@@ -1,0 +1,525 @@
+@charset "UTF-8";
+/** SASS的语法参见sass-lang.com */
+/**
+ * Resets
+ * --------------------------------------------------
+ * Adapted from normalize.css and some reset.css. We don't care even one
+ * bit about old IE, so we don't need any hacks for that in here.
+ *
+ * There are probably other things we could remove here, as well.
+ *
+ * normalize.css v2.1.2 | MIT License | git.io/normalize
+
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+b, i, u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, fieldset,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font: inherit;
+  font-size: 100%; }
+
+b {
+  font-weight: bold; }
+
+ol, ul {
+  list-style: none; }
+
+html {
+  /*  @include user-select(none);*/
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  background-color: #ebebeb;
+  color: #333333; }
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 16px; }
+
+/**
+ * Remove default outlines.
+ */
+a,
+button,
+:focus,
+a:focus,
+button:focus,
+a:active,
+a:hover {
+  outline: 0; }
+
+/* *
+ * Remove tap highlight color
+ */
+a {
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: inherit; }
+  a[href]:hover {
+    cursor: pointer; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 4. Remove any default :focus styles
+ * 5. Make sure webkit font smoothing is being inherited
+ * 6. Remove default gradient in Android Firefox / FirefoxOS
+ */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  /* 3 */
+  font-size: 100%;
+  /* 2 */
+  font-family: inherit;
+  /* 1 */
+  outline-offset: 0;
+  /* 4 */
+  outline-style: none;
+  /* 4 */
+  outline-width: 0;
+  /* 4 */
+  -webkit-font-smoothing: inherit;
+  /* 5 */
+  background-image: none;
+  /* 6 */
+  text-indent: 0;
+  padding-left: 0;
+  padding-right: 0; }
+  button::-moz-placeholder,
+  input::-moz-placeholder,
+  select::-moz-placeholder,
+  textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #cccccc;
+    font-size: 16px;
+    text-indent: 0; }
+  button:-ms-input-placeholder,
+  input:-ms-input-placeholder,
+  select:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: #cccccc;
+    font-size: 16px;
+    text-indent: 0; }
+  button::-webkit-input-placeholder,
+  input::-webkit-input-placeholder,
+  select::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #cccccc;
+    text-indent: 0;
+    font-size: 16px; }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `importnt` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+  background-color: transparent; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *  and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *  `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  /* 3 */
+  -webkit-appearance: button;
+  /* 2 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+img {
+  -webkit-user-drag: none; }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-spacing: 0;
+  border-collapse: collapse; }
+
+html {
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  font-family: Arial, "Lucida Grande",STHeiTi, sans-serif; }
+
+form input {
+  border: 0; }
+
+input, select, textarea {
+  border: none;
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0; }
+
+div, p, span, input, button, a, label, textarea, header, table, tr, td {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none; }
+
+button {
+  padding: 0; }
+
+.wrap-container{
+  min-width: 320px;
+}
+.container-1{
+  background: #336699;
+}
+.container-2{
+  background: #ffffff;
+}
+.container-3{
+  background: #99cccc;
+}
+@media screen and (max-width: 959px){
+  html {
+    font-size: 100px; 
+  }
+  /*移动端*/
+  .wrap-container{
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .container{
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  
+  .container-info{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    width: 100%;
+    -webkit-transform: translate(0,-50%);
+    -moz-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    text-align: left;
+    font-weight: 600;
+  }
+  .container-title{
+    font-size: 30px;
+    font-family: "Microsoft Yahei";
+  }
+  .container-subtitle{
+    font-size: 24px;
+    line-height: 1.0;
+    font-family: Arial;
+  }
+  .container-pic{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+    -webkit-transform: translate(-50%,50%) scale(0.5);
+    transform: translate(-50%,50%) scale(0.5);
+    overflow: hidden;
+    animation: none;
+    -webkit-animation: picMobile 1s steps(2,end) infinite;
+    animation: picMobile 1s steps(2,end) infinite;
+  }
+  .container-1 .container-pic{
+    background: url("../images/pic-a.png") no-repeat;
+    width: 315px;
+    height: 212px;
+    background-size: 666px 212px;
+    background-position: 0 0;
+  }
+  .container-2 .container-pic{
+    background: url("../images/pic-b.png") no-repeat;
+    width: 315px;
+    height: 219px;
+    background-size: 666px 219px;
+    background-position: 0 0;
+  }
+  .container-3 .container-pic{
+    background: url("../images/pic-c.png") no-repeat;
+    width: 315px;
+    height: 294px;
+    background-size: 666px 294px;
+    background-position: 0 0;
+  }
+  @-webkit-keyframes picMobile{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -702px 0;
+    }
+  }
+  @keyframes picMobile{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -702px 0;
+    }
+  }
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 960px){
+  html {
+    font-size: 16px; 
+  } 
+  /*pc端*/
+  .wrap-container{
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  .container{
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .container:hover{
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -moz-box-flex: 2;
+    -moz-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+  }
+
+  .container-pic{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
+    -o-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    overflow: hidden;
+    animation: none;
+  }
+  .container-1 .container-pic{
+    background: url("../images/pic-a.png") no-repeat;
+    width: 315px;
+    height: 212px;
+    background-size: 666px 212px;
+    background-position: 0 0;
+  }
+  .container:hover .container-pic{
+    -webkit-animation: pic 1s 0.3s steps(2,end) infinite;
+    -moz-animation: pic 1s 0.3s steps(2,end) infinite;
+    -ms-animation: pic 1s 0.3s steps(2,end) infinite;
+    -o-animation: pic 1s 0.3s steps(2,end) infinite;
+    animation: pic 1s 0.3s steps(2,end) infinite;
+  }
+  .container-2 .container-pic{
+    background: url("../images/pic-b.png") no-repeat;
+    width: 315px;
+    height: 219px;
+    background-size: 666px 219px;
+    background-position: 0 0;
+  }
+  .container-3 .container-pic{
+    background: url("../images/pic-c.png") no-repeat;
+    width: 315px;
+    height: 294px;
+    background-size: 666px 294px;
+    background-position: 0 0;
+  }
+  .container-info{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+  }
+  .container-title{
+    font-size: 50px;
+    font-family: "Microsoft Yahei";
+
+  }
+  .container-subtitle{
+    font-size: 34px;
+    line-height: 1.0;
+    font-family: Arial;
+  }
+  @-webkit-keyframes pic{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -702px 0;
+    }
+  }
+  @-moz-keyframes pic{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -702px 0;
+    }
+  }
+  @-ms-keyframes pic{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -702px 0;
+    }
+  }
+  @-o-keyframes pic{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -702px 0;
+    }
+  }
+  @keyframes pic{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -702px 0;
+    }
+  }
+}
